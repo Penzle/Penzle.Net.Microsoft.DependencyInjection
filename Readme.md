@@ -1,9 +1,10 @@
 # Penzle.Net.Microsoft.DependencyInjection
 
-![Build status](https://github.com/Penzle/Penzle.Net/actions/workflows/build.yml/badge.svg)
+![Build & Test](https://github.com/Penzle/Penzle.Net.Microsoft.DependencyInjection/actions/workflows/build-and-test.yml/badge.svg)
 ![Licence](https://camo.githubusercontent.com/238290f8deb751619ca04ad3d316f1246a498b13d2ab49c0348e2b4311bd08f4/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f6a6f6e6772616365636f782f616e7962616467652e737667)
 
-[Penzle.Net.Microsoft.DependencyInjection](Penzle.Net.Microsoft.DependencyInjection) with [Penzle.Net](https://github.com/Penzle/Penzle.Net) is a great choice for building ASP.NET Core applications.
+[Penzle.Net.Microsoft.DependencyInjection](Penzle.Net.Microsoft.DependencyInjection)
+with [Penzle.Net](https://github.com/Penzle/Penzle.Net) is a great choice for building ASP.NET Core applications.
 
 | Package                                  | Nuget                                                                                                                                                                                                    | Downloads                                                                                                                                                                                            | Compatibility                                                                                                                                                                              |
 | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -26,7 +27,8 @@ dotnet add <your project> package Penzle.Net.Microsoft.DependencyInjection
 
 ## **Contributing to Penzle.Net.Microsoft.DependencyInjection**
 
-Your thoughts and ideas are much appreciated. If you're interested in helping out with this project in any way, we'd like to make it as clear and straightforward as possible for you to do so, whether that's by:
+Your thoughts and ideas are much appreciated. If you're interested in helping out with this project in any way, we'd
+like to make it as clear and straightforward as possible for you to do so, whether that's by:
 
 - Bug reporting
 - Addressing the present codebase
@@ -34,11 +36,15 @@ Your thoughts and ideas are much appreciated. If you're interested in helping ou
 - Advancing ideas for brand new capabilities
 - Taking on the role of a maintainer
 
-Github is where we host our code, manage bug reports and feature requests, and incorporate changes suggested by our users. 
-Report bugs using Github's issues. We host our code on Github, which is also where we manage user bug reports and feature requests and incorporate modifications made by users. In general, high-quality bug reports consist of the following components: background information; reproducible steps; an example of the code, if the reporter possesses such an example.
-
+Github is where we host our code, manage bug reports and feature requests, and incorporate changes suggested by our
+users.
+Report bugs using Github's issues. We host our code on Github, which is also where we manage user bug reports and
+feature requests and incorporate modifications made by users. In general, high-quality bug reports consist of the
+following components: background information; reproducible steps; an example of the code, if the reporter possesses such
+an example.
 
 ## **License**
+
 MIT License
 
 Copyright (c) 2022 Penzle LLC
