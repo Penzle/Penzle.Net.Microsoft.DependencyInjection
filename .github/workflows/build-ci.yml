@@ -20,8 +20,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore Penzle.Net.Microsoft.DependencyInjection/src/Penzle.Net.Microsoft.DependencyInjection/Penzle.Net.Microsoft.DependencyInjection/Penzle.Net.Microsoft.DependencyInjection.csproj
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build Penzle.Net.Microsoft.DependencyInjection/src/Penzle.Net.Microsoft.DependencyInjection/Penzle.Net.Microsoft.DependencyInjection/Penzle.Net.Microsoft.DependencyInjection.csproj --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
