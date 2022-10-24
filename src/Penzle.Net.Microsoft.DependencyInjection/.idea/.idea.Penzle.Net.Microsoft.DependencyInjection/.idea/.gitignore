@@ -2,10 +2,10 @@
 /shelf/
 /workspace.xml
 # Rider ignored files
-/.idea.Penzle.Microsoft.DependencyInjection.iml
-/modules.xml
-/projectSettingsUpdater.xml
 /contentModel.xml
+/modules.xml
+/.idea.Penzle.Net.Microsoft.DependencyInjection.iml
+/projectSettingsUpdater.xml
 # Editor-based HTTP Client requests
 /httpRequests/
 # Datasource local storage ignored files
