@@ -23,5 +23,3 @@ jobs:
       run: dotnet restore src/Penzle.Net.Microsoft.DependencyInjection/Penzle.Net.Microsoft.DependencyInjection/Penzle.Net.Microsoft.DependencyInjection.csproj
     - name: Build
       run: dotnet build src/Penzle.Net.Microsoft.DependencyInjection/Penzle.Net.Microsoft.DependencyInjection/Penzle.Net.Microsoft.DependencyInjection.csproj --no-restore
-    - name: Test
-      run: dotnet test src/**/*Tests.csproj --no-build --verbosity normal
