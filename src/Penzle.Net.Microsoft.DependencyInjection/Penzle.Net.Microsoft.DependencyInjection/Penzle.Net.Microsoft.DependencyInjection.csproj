@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <version>1.0.0-beta.1</version>
         <TargetFramework>netstandard2.1</TargetFramework>
-        <LangVersion>default</LangVersion>
+        <PackageReadmeFile>Readme.md</PackageReadmeFile>
+        <LangVersion>latest</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Authors>Penzle Technologies</Authors>
@@ -20,9 +20,13 @@
         <PackageTags>cms;net;netcore;penzle;penzle-technologies</PackageTags>
     </PropertyGroup>
     <ItemGroup>
+        <None Include="..\..\..\Readme.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+    
+    <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0"/>
         <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0"/>
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0"/>
-        <PackageReference Include="Penzle.Net" Version="1.0.0-beta.8"/>
+        <PackageReference Include="Penzle.Net" Version="1.0.0-rc.3"/>
     </ItemGroup>
 </Project>
