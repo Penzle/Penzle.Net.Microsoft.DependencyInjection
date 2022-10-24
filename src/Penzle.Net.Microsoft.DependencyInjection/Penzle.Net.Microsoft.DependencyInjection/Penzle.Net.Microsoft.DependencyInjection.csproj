@@ -9,6 +9,7 @@
         <Product>Penzle Client dependency injection extensions for .NET Core</Product>
         <PackageId>Penzle.Net.Microsoft.DependencyInjection</PackageId>
         <RepositoryType>git</RepositoryType>
+        <PackageIconUrl>https://dev.azure.com/penzle/_apis/GraphProfile/MemberAvatars/e9c70b7c-622d-40be-947c-989027dbb95a</PackageIconUrl>
         <IconUrl>https://dev.azure.com/penzle/_apis/GraphProfile/MemberAvatars/e9c70b7c-622d-40be-947c-989027dbb95a</IconUrl>
         <AssemblyTitle>Penzle.Net.Microsoft.DependencyInjection</AssemblyTitle>
         <Description>Penzle client extensions for ASP.NET Core</Description>
