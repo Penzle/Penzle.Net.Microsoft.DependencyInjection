@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Net.Http;
+﻿using System.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Penzle.Core;

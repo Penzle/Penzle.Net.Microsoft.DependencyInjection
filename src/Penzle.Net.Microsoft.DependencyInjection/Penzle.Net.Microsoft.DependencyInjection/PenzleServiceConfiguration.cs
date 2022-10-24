@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Penzle.Net.Microsoft.DependencyInjection;
+﻿namespace Penzle.Net.Microsoft.DependencyInjection;
 
 public sealed class PenzleServiceConfiguration
 {
