@@ -68,7 +68,8 @@ public static class ServiceCollectionExtensions
             credentialStore: new InMemoryCredentialStore(credentials: new BearerCredentials(apiDeliveryKey: penzleServiceConfiguration.ApiDeliveryKey,
                 apiManagementKey: penzleServiceConfiguration.ApiManagementKey)),
             httpClient: new HttpClientAdapter(getHandler: () => new HttpClientHandler()),
-            serializer: new MicrosoftJsonSerializer()
+            serializer: new MicrosoftJsonSerializer(),
+            platformInformation: new SdkPlatformInformation()
         );
 
         services.AddScoped<IConnection>(implementationFactory: provider => connection);
