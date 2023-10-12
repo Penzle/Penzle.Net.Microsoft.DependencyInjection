@@ -19,6 +19,113 @@ Installation using .NET CLI:
 ```
 dotnet add <your project> package Penzle.Net.Microsoft.DependencyInjection
 ```
+## Usage
+
+You can access data from the Penzle APIs by employing the IDeliveryPenzleClient, which offers functions for fetching information from the Penzle Delivery API. For tasks involving entries creation, updating, and deletion, you'll utilize the IManagementPenzleClient.
+
+### Reference the Penzle Dependency Injection Namespace
+
+In your project files (e.g., Startup.cs or Program.cs), add a reference to the Penzle.Net.Microsoft.DependencyInjection namespace:
+
+```csharp
+using Penzle.Net.Microsoft.DependencyInjection;
+```
+
+### Configure the Service Collection
+Set up the Penzle client by calling service.AddPenzleClient and providing it with your configuration:
+
+```csharp
+using Microsoft.Extensions.Configuration;
+using Penzle.Net.Microsoft.DependencyInjection;
+
+// Retrieve your configuration, typically from an appsettings.json file
+var configuration = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json")
+    .Build();
+
+// Configure the Penzle client with your PenzleApiConfig
+service.AddPenzleClient((IConfigurationRoot)configuration);
+```
+
+### Configuration in appsettings.json
+
+To use the Penzle.Net.Microsoft.DependencyInjection package, it's essential to have the necessary Penzle API configuration properties in your `appsettings.json` file. These properties are used to configure the Penzle client. Here's an example configuration structure:
+
+```json
+{
+  "PenzleApiConfig": {
+    "ApiManagementKey": "YourApiManagementKey",
+    "ApiDeliveryKey": "YourApiDeliveryKey",
+    "BaseUri": "https://api.penzle.com",
+    "Environment": "YourEnvironment",
+    "Project": "YourProject"
+  }
+}
+```
+### Example of usage IDeliveryPenzleClient and IManagementPenzleClient
+```csharp
+public class PenzleDataManagementRepository : IPenzleDataManagementRepository
+{
+    private readonly IDeliveryPenzleClient _deliveryPenzleClient;
+    private readonly IManagementPenzleClient _managementPenzleClient;
+
+    public PenzleDataManagementRepository(IManagementPenzleClient managementPenzleClient,
+        IDeliveryPenzleClient deliveryPenzleClient)
+    {
+        _managementPenzleClient = managementPenzleClient;
+        _deliveryPenzleClient = deliveryPenzleClient;
+    }
+
+    public async Task<TResponse> GetEntry<TResponse>(Guid entityId, CancellationToken cancellationToken) where TResponse : new()
+    {
+        return await _deliveryPenzleClient.Entry.GetEntry<TResponse>(entityId, cancellationToken: cancellationToken);
+    }
+
+    public async Task<Guid> SaveEntry<TInput>(TInput fields, string name, Guid? parentId = null, Guid? id = null, CancellationToken cancellationToken = default) where TInput : new()
+    {
+        var entry = new CreateEntryRequest<TInput>
+        {
+            Fields = fields,
+            Name = name,
+            Template = GetTemplateNameFromType(typeof(TInput).Name),
+            ParentId = parentId,
+            Id = id
+        };
+        return await _managementPenzleClient.Entry.CreateEntry(entry, cancellationToken);
+    }
+
+    public async Task<bool> UpdateEntry<TInput>(Guid entityId, TInput fields, string name, CancellationToken cancellationToken)
+        where TInput : new()
+    {
+        var updateEntry = new UpdateEntryRequest<TInput>
+        {
+            Fields = fields,
+            Name = name,
+            Template = GetTemplateNameFromType(typeof(TInput).Name),
+            Id = entityId
+        };
+
+        var response = await _managementPenzleClient.Entry.UpdateEntry(entityId, updateEntry,
+            cancellationToken);
+
+        return response == HttpStatusCode.NoContent;
+    }
+
+    public async Task<bool> DeleteEntry(Guid entryId, CancellationToken cancellationToken)
+    {
+        var response = await _managementPenzleClient.Entry.DeleteEntry(entryId, cancellationToken);
+
+        return response == HttpStatusCode.NoContent;
+    }
+
+    public async Task<IReadOnlyList<TResponse>> GetEntriesByQuery<TResponse>(QueryEntryBuilder<TResponse> query, CancellationToken cancellationToken)
+        where TResponse : new()
+    {
+        return await _deliveryPenzleClient.Entry.GetEntries(query, cancellationToken: cancellationToken);
+    }
+}
+```
 
 ## **Contributing to Penzle.Net.Microsoft.DependencyInjection**
 
